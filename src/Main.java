@@ -9,10 +9,12 @@ public class Main {
         JUGADOR jugador1 = new JUGADOR("x","y",0,0,0) ;
 
         System.out.println("=== CÁLCULO DE PUNTAJE DE JUGADOR ===");
-
-        // Datos individuales
         System.out.println("Nombre del jugador: ");
         jugador1.setNombre(sc.next());
+
+        System.out.println("Apellido del jugador: ");
+        jugador1.setApellido(sc.next());
+
         System.out.print("Puntos anotados: ");
         jugador1.setPuntos(sc.nextInt());
 
@@ -39,8 +41,8 @@ public class Main {
         // Datos colectivos
         System.out.println("\n=== RESULTADO DEL EQUIPO ===");
         System.out.print("¿El equipo ganó o perdió? (g/p): ");
-        char resultado = sc.next().toLowerCase().charAt(0);
-
+        char resultado = sc.next().charAt(0);
+        whyle(reus)
         System.out.print("Diferencia de puntos en el marcador: ");
         int diferencia = sc.nextInt();
 
