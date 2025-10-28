@@ -6,19 +6,21 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        JUGADOR jugador1 = new JUGADOR("x","y",0,0,0) ;
 
         System.out.println("=== CÁLCULO DE PUNTAJE DE JUGADOR ===");
 
         // Datos individuales
+        System.out.println("Nombre del jugador: ");
+        jugador1.setNombre(sc.next());
         System.out.print("Puntos anotados: ");
-        JUGADOR jugador1 = new JUGADOR();
-        sc.nextInt() = jugador1.setPuntos();
+        jugador1.setPuntos(sc.nextInt());
 
         System.out.print("Minutos jugados: ");
-        jugador1.setMinutos() = sc.nextInt();
+        jugador1.setMinutos(sc.nextInt());
 
         System.out.print("Cantidad de faltas: ");
-        jugador1.setPenalizacionFaltas() = sc.nextInt();
+        jugador1.setPenalizacionFaltas(sc.nextInt());
 
 
 

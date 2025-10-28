@@ -1,9 +1,9 @@
 public class JUGADOR {
-    private String nombre;
-    private String apellido;
-    private int puntos;
-    private int minutos;
-    private int penalizacionFaltas;
+    private String nombre = "sergio";
+    private String apellido = "vazquez";
+    private int puntos = 0;
+    private int minutos = 0;
+    private int penalizacionFaltas = 0;
 
     public JUGADOR(String apellido, String nombre, int puntos, int minutos, int penalizacionFaltas) {
         this.apellido = apellido;
