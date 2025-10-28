@@ -42,7 +42,10 @@ public class Main {
         System.out.println("\n=== RESULTADO DEL EQUIPO ===");
         System.out.print("¿El equipo ganó o perdió? (g/p): ");
         char resultado = sc.next().charAt(0);
-        whyle(reus)
+        while (resultado!= 'g' && resultado!= 'p' && resultado != 'P' && resultado != 'G') {
+            System.out.println("Error introduce bien g si gananron el partido y p si perdieron el partido : ");
+            resultado = sc.next().charAt(0);
+        }
         System.out.print("Diferencia de puntos en el marcador: ");
         int diferencia = sc.nextInt();
 
