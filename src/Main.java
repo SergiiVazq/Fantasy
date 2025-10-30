@@ -5,11 +5,27 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+
+        // PROYECTO FANTASY CATEGORIAS BASE SIN REBOTES ROBOS ASISTENCIAS ETC
+        
         Scanner entrada = new Scanner(System.in);
         System.out.println("Ingrese la cantidad de juggadors que jugaron el partido:");
         int jugadores = entrada.nextInt();
 
         Jugador[] personas = new Jugador[jugadores];
+        // menú sin acabar
+        /*
+           public static int domenu(){
+           }
+         */
+        /*
+            System.out.println("=== BIENVENIDO AL MENU FANTASY ===");
+            System.out.println("\n pulsa el numero correspondiente para acceder a las secciones");
+            System.out.println("\n1. Partido nuevo .");
+            System.out.println("\n2.Consultar datos");
+            System.out.println("\n etc work in progress...");
+            int menu = entrada.nextInt();
+            resturn menu;*/
 
 
         // datos de un partido
