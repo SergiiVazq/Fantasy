@@ -84,9 +84,10 @@ public class Main {
 
         // Puntaje total final
 
-        for (int i = 0; i < personas.length; i++) {
-            personas[i].setPuntostotales(personas[i].getPuntosindividuales()+puntosEquipo);
-        }
+        //for (int i = 0; i < personas.length; i++) {
+        //    personas[i].setPuntostotales(personas[i].getPuntosindividuales()+puntosEquipo);
+            calculoindividual(personas,puntosEquipo);
+        //}
 
         System.out.println("\n=== RESULTADO FANTASY ===");
         for (int i = 0; i < personas.length; i++) {
@@ -97,6 +98,13 @@ public class Main {
 
 
 
-        
+
     }
+    public static void calculoindividual(Jugador[]players,int x){
+        for  (int i = 0; i < players.length; i++) {
+
+
+            players[i].setPuntostotales(players[i].getPuntosindividuales() + x);
+        }
+        }
 }
