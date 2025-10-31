@@ -2,6 +2,6 @@
 
 ## Proyecto fantasy
 
-## ---*REGLAS*---
+## ---REGLAS---*5/
 
 
