@@ -1,1 +1,6 @@
-##FANTASY
+## FANTASY
+
+# Proyecto fantasy
+# ---*REGLAS*---
+
+
