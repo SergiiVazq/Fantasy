@@ -6,12 +6,11 @@ public class Main {
 
     public static void main(String[] args) {
         int opcion;
-        int[] pindvtotal;
-        int[] pequiptotal;
+
         int jornadas = 0;
 
-        Jornadas[] ptotal = new Jornadas[12];
-        for (int i = 0; i < 12; i++) {
+        Jornadas[] ptotal = new Jornadas[100];
+        for (int i = 0; i < 100; i++) {
             ptotal[i] = new Jornadas("y", "x", 0, 0, 0);
 
         }
@@ -34,13 +33,43 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("no implementado");
-                    System.out.println("\n=== ESTE ES EL RESUMEN DE TU EQUIPO FANTASY ==");
-                    for (int i = 0; i < 12; i++) {
-                        System.out.println(" jugador "+ (i+1) + " con nombre "+ ptotal[i].getNombre() +" puntos individuales ==> "+ ptotal[i].getPuntosindividualesfantasy() + " Y puntos de equipo ==> " + ptotal[i].getPuntostotalesfantasy());
+                    //de momento es un resumen de todos los jugadores introduciodos manualmente
+                    System.out.println("\n=== ESTE ES EL RESUMEN DE TU EQUIPO FANTASY ==\n");
+                    for (int i = 0; i < ptotal.length; i++) {
+                        if(!ptotal[i].getNombre().equals("y")){
+                            System.out.println(" jugador "+ (i+1) + " con nombre "+ ptotal[i].getNombre() +" puntos individuales ==> "+ ptotal[i].getPuntosindividualesfantasy() + " Y puntos de equipo ==> " + ptotal[i].getPuntostotalesfantasy());
+                        }
                     }
+
                     break;
                 case 3:
                     System.out.println("no implementado");
+                    System.out.println("\n=== ESTE ES LA CLASIFICACION ACTUAL DE LOS INTRODUCIDOS MANUALMENTE ==\n");;
+                    Jornadas[] clasificacion = new Jornadas[ptotal.length];
+                    for (int i = 0; i < ptotal.length; i++) {
+                        clasificacion[i] = new Jornadas("y", "x", 0, 0, 0);
+                    }
+
+
+                    for (int i = 0; i < clasificacion.length; i++) {
+                        for (int j = 0; j < clasificacion.length; j++) {
+                            if(clasificacion[i].getPuntosindividualesfantasy()<ptotal[j].getPuntosindividualesfantasy()){
+
+
+                                clasificacion[i] = ptotal[j];
+                            }
+
+
+
+
+                        }
+
+                            System.out.println(" CLASIFICADO "+ (i+1) + "º con nombre "+ clasificacion[i].getNombre() +" puntos individuales ==> "+ clasificacion[i].getPuntosindividualesfantasy());
+
+
+                    }
+
+
                     break;
                 case 4:
                     Scanner entrada = new Scanner(System.in);
@@ -178,8 +207,8 @@ public class Main {
         System.out.println("\n--<=== BIENVENIDO AL MENU FANTASY ===>--");
         System.out.println("\n pulsa el numero correspondiente para acceder a las secciones");
         System.out.println("- 1. MERCADO(NO IMPLEMENTADO).");
-        System.out.println("- 2. TU EQUIPO FANTASY(FUNCIONA A MEJORAR) ");
-        System.out.println("- 3. CLASIFICACION FANTASY(NO IMPLEMENTADO) ");
+        System.out.println("- 2. TU EQUIPO FANTASY(FUNCIONA) ");
+        System.out.println("- 3. CLASIFICACION FANTASY(IMPLEMENTADO SIN ACABAR) ");
         System.out.println("- 4. PARTIDO MANUAL(FUNCIONA)");
         System.out.println("- 5. SALIR DE LA APLICACCION (FUNCIONA) ");
         System.out.println(" etc work in progress... ");
