@@ -50,12 +50,12 @@ public class Main {
                         clasificacion[i] = new Jornadas("y", "x", 0, 0, 0);
                     }
 
-
+                    //sin acabar ->
                     for (int i = 0; i < clasificacion.length; i++) {
                         for (int j = 0; j < clasificacion.length; j++) {
                             if(clasificacion[i].getPuntosindividualesfantasy()<ptotal[j].getPuntosindividualesfantasy()){
 
-
+                                //imprime siempre el mayor(cambiar)
                                 clasificacion[i] = ptotal[j];
                             }
 
@@ -68,7 +68,7 @@ public class Main {
 
 
                     }
-
+                    // <- sin acabar
 
                     break;
                 case 4:
