@@ -2,7 +2,6 @@
 
 ## Proyecto fantasy
 
-Aplicacion fantasy oficial para la FGB actualmente en construcción para 2ªnacional mas categorias en un futuro
 
 ## ---REGLAS---
 
