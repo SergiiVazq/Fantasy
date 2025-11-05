@@ -48,25 +48,45 @@ public class Main {
                     Jornadas[] clasificacion = new Jornadas[ptotal.length];
                     for (int i = 0; i < ptotal.length; i++) {
                         clasificacion[i] = new Jornadas("y", "x", 0, 0, 0);
+
                     }
+                    Jornadas mayor= new Jornadas("y", "x", 0, 0, 0);
+                    for (int i = 0; i < ptotal.length; i++) {
+
+                        if( ptotal[i].getPuntosindividualesfantasy()>mayor.getPuntosindividualesfantasy()){
+                            mayor = ptotal[i];
+                        }
+                    }
+                    clasificacion[0] = mayor;
 
                     //sin acabar ->
-                    for (int i = 0; i < clasificacion.length; i++) {
-                        for (int j = 0; j < clasificacion.length; j++) {
-                            if(clasificacion[i].getPuntosindividualesfantasy()<ptotal[j].getPuntosindividualesfantasy()){
-
-                                //imprime siempre el mayor(cambiar)
+                    for (int i = 1; i < ptotal.length-1; i++) {
+                        for (int j = 0; j < ptotal.length; j++) {
+                            //segunda condicion mal por que clasificacion es vacio habria que encontrar el mayor y iniciarlo con un elemento ya si lo quiero hacer asi
+                            if(ptotal[i].getPuntosindividualesfantasy()<ptotal[j].getPuntosindividualesfantasy() && ptotal[j].getPuntosindividualesfantasy()<clasificacion[i-1].getPuntosindividualesfantasy()){
+                                //
                                 clasificacion[i] = ptotal[j];
+
+
                             }
+                            //primer elemento mal
+                            //if(clasificacion[i].getPuntosindividualesfantasy()<ptotal[j].getPuntosindividualesfantasy()){
+                              //  clasificacion[0] = ptotal[j];
+                            //}
 
 
 
 
                         }
 
-                            System.out.println(" CLASIFICADO "+ (i+1) + "º con nombre "+ clasificacion[i].getNombre() +" puntos individuales ==> "+ clasificacion[i].getPuntosindividualesfantasy());
 
 
+
+
+
+                    }
+                    for (int i = 0; i < ptotal.length; i++) {
+                        System.out.println(" CLASIFICADO "+ (i+1) + "º con nombre "+ clasificacion[i].getNombre() +" puntos individuales ==> "+ clasificacion[i].getPuntosindividualesfantasy());
                     }
                     // <- sin acabar
 
