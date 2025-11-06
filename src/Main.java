@@ -36,33 +36,36 @@ public class Main {
                     //de momento es un resumen de todos los jugadores introduciodos manualmente
                     System.out.println("\n=== ESTE ES EL RESUMEN DE TU EQUIPO FANTASY ==\n");
                     for (int i = 0; i < ptotal.length; i++) {
-                        if(!ptotal[i].getNombre().equals("y")){
-                            System.out.println(" jugador "+ (i+1) + " con nombre "+ ptotal[i].getNombre() +" puntos individuales ==> "+ ptotal[i].getPuntosindividualesfantasy() + " Y puntos de equipo ==> " + ptotal[i].getPuntostotalesfantasy());
+                        if (!ptotal[i].getNombre().equals("y")) {
+                            System.out.println(" jugador " + (i + 1) + " con nombre " + ptotal[i].getNombre() + " puntos individuales ==> " + ptotal[i].getPuntosindividualesfantasy() + " Y puntos de equipo ==> " + ptotal[i].getPuntostotalesfantasy());
                         }
                     }
 
                     break;
                 case 3:
                     System.out.println("no implementado");
-                    System.out.println("\n=== ESTE ES LA CLASIFICACION ACTUAL DE LOS INTRODUCIDOS MANUALMENTE ==\n");;
+                    System.out.println("\n=== ESTE ES LA CLASIFICACION ACTUAL DE LOS INTRODUCIDOS MANUALMENTE ==\n");
+                    ;
                     Jornadas[] clasificacion = new Jornadas[ptotal.length];
                     for (int i = 0; i < ptotal.length; i++) {
                         clasificacion[i] = new Jornadas("y", "x", 0, 0, 0);
 
                     }
-                    Jornadas mayor= new Jornadas("y", "x", 0, 0, 0);
-                    for (int i = 0; i < ptotal.length; i++) {
-
-                        if( ptotal[i].getPuntosindividualesfantasy()>mayor.getPuntosindividualesfantasy()){
-                            mayor = ptotal[i];
+                    //ordenamos con insert y guardamos en clasificacion 
+                    clasificacion = insert(ptotal);
+                    for (int i = 0; i < clasificacion.length; i++) {
+                        if (!ptotal[i].getNombre().equals("y")) {
+                            System.out.println(" EL NUMERO " + (i + 1) + " EN LA CLASIFICACION ES: " + clasificacion[i].getNombre() + " puntos individuales ==> " + clasificacion[i].getPuntosindividualesfantasy() );
                         }
                     }
-                    clasificacion[0] = mayor;
 
+
+
+/*
                     //sin acabar ->
                     for (int i = 1; i < ptotal.length-1; i++) {
                         for (int j = 0; j < ptotal.length; j++) {
-                            //segunda condicion mal por que clasificacion es vacio habria que encontrar el mayor y iniciarlo con un elemento ya si lo quiero hacer asi
+                            //segunda condicion mal por que clasificacion es vacio
                             if(ptotal[i].getPuntosindividualesfantasy()<ptotal[j].getPuntosindividualesfantasy() && ptotal[j].getPuntosindividualesfantasy()<clasificacion[i-1].getPuntosindividualesfantasy()){
                                 //
                                 clasificacion[i] = ptotal[j];
@@ -88,7 +91,7 @@ public class Main {
                     for (int i = 0; i < ptotal.length; i++) {
                         System.out.println(" CLASIFICADO "+ (i+1) + "º con nombre "+ clasificacion[i].getNombre() +" puntos individuales ==> "+ clasificacion[i].getPuntosindividualesfantasy());
                     }
-                    // <- sin acabar
+                    // <- sin acabar*/
 
                     break;
                 case 4:
@@ -213,7 +216,7 @@ public class Main {
 
 
             }
-        }while (opcion != 5) ;
+        } while (opcion != 5);
 
 
     }
@@ -239,7 +242,25 @@ public class Main {
         return menu;
     }
 
+    public static Jornadas[] insert(Jornadas[] x) {
+
+        Jornadas actual = new Jornadas("", "", 0, 0, 0);
+        for (int i = 1; i < x.length - 1; i++) {
+
+            actual = x[i];
+            int j = i - 1;
+            while (j >= 0 && actual.getPuntosindividualesfantasy() > x[j].getPuntosindividualesfantasy()) {
+                x[j + 1] = x[j];
+                j--;
 
 
+            }
+            x[j + 1] = actual;
 
+
+        }
+        return x;
+
+
+    }
 }
