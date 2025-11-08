@@ -51,53 +51,26 @@ public class Main {
                         clasificacion[i] = new Jornadas("y", "x", 0, 0, 0);
 
                     }
-                    //ordenamos con insert y guardamos en clasificacion 
-                    clasificacion = insert(ptotal);
+                    //ordenamos con insert y guardamos en clasificacion
+                    clasificacion = insertindivi(ptotal);
                     for (int i = 0; i < clasificacion.length; i++) {
                         if (!ptotal[i].getNombre().equals("y")) {
-                            System.out.println(" EL NUMERO " + (i + 1) + " EN LA CLASIFICACION ES: " + clasificacion[i].getNombre() + " puntos individuales ==> " + clasificacion[i].getPuntosindividualesfantasy() );
+                            System.out.println(" EL NUMERO " + (i + 1) + " EN LA CLASIFICACION ES: " + clasificacion[i].getNombre() + " puntos individuales ==> " + clasificacion[i].getPuntosindividualesfantasy());
                         }
                     }
 
 
 
-/*
-                    //sin acabar ->
-                    for (int i = 1; i < ptotal.length-1; i++) {
-                        for (int j = 0; j < ptotal.length; j++) {
-                            //segunda condicion mal por que clasificacion es vacio
-                            if(ptotal[i].getPuntosindividualesfantasy()<ptotal[j].getPuntosindividualesfantasy() && ptotal[j].getPuntosindividualesfantasy()<clasificacion[i-1].getPuntosindividualesfantasy()){
-                                //
-                                clasificacion[i] = ptotal[j];
-
-
-                            }
-                            //primer elemento mal
-                            //if(clasificacion[i].getPuntosindividualesfantasy()<ptotal[j].getPuntosindividualesfantasy()){
-                              //  clasificacion[0] = ptotal[j];
-                            //}
 
 
 
-
-                        }
-
-
-
-
-
-
-                    }
-                    for (int i = 0; i < ptotal.length; i++) {
-                        System.out.println(" CLASIFICADO "+ (i+1) + "º con nombre "+ clasificacion[i].getNombre() +" puntos individuales ==> "+ clasificacion[i].getPuntosindividualesfantasy());
-                    }
-                    // <- sin acabar*/
 
                     break;
                 case 4:
                     Scanner entrada = new Scanner(System.in);
                     System.out.println("Ingrese la cantidad de juggadors que jugaron el partido:");
                     int jugadores = entrada.nextInt();
+                    //POR CREAR FUNCIONES
 
                     Jugador[] personas = new Jugador[jugadores];
                     for (int i = 0; i < jugadores; i++) {
@@ -230,8 +203,8 @@ public class Main {
         System.out.println("\n--<=== BIENVENIDO AL MENU FANTASY ===>--");
         System.out.println("\n pulsa el numero correspondiente para acceder a las secciones");
         System.out.println("- 1. MERCADO(NO IMPLEMENTADO).");
-        System.out.println("- 2. TU EQUIPO FANTASY(FUNCIONA) ");
-        System.out.println("- 3. CLASIFICACION FANTASY(IMPLEMENTADO SIN ACABAR) ");
+        System.out.println("- 2. TU EQUIPO FANTASY(FUNCIONA)  ");
+        System.out.println("- 3. CLASIFICACION FANTASY(FUNCIONA) ");
         System.out.println("- 4. PARTIDO MANUAL(FUNCIONA)");
         System.out.println("- 5. SALIR DE LA APLICACCION (FUNCIONA) ");
         System.out.println(" etc work in progress... ");
@@ -241,8 +214,8 @@ public class Main {
 
         return menu;
     }
-
-    public static Jornadas[] insert(Jornadas[] x) {
+//Ordenacion de mayor a menor respecto  puntos indivuales
+    public static Jornadas[] insertindivi(Jornadas[] x) {
 
         Jornadas actual = new Jornadas("", "", 0, 0, 0);
         for (int i = 1; i < x.length - 1; i++) {
@@ -250,6 +223,27 @@ public class Main {
             actual = x[i];
             int j = i - 1;
             while (j >= 0 && actual.getPuntosindividualesfantasy() > x[j].getPuntosindividualesfantasy()) {
+                x[j + 1] = x[j];
+                j--;
+
+
+            }
+            x[j + 1] = actual;
+
+
+        }
+        return x;
+
+
+    }
+    public static Jornadas[] insertcolect(Jornadas[] x) {
+
+        Jornadas actual = new Jornadas("", "", 0, 0, 0);
+        for (int i = 1; i < x.length - 1; i++) {
+
+            actual = x[i];
+            int j = i - 1;
+            while (j >= 0 && actual.getPuntostotalesfantasy() > x[j].getPuntostotalesfantasy()) {
                 x[j + 1] = x[j];
                 j--;
 
